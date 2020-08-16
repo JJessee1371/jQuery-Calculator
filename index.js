@@ -32,7 +32,21 @@ $('.num').on('click', function() {
 
 
 //Switch statement of functions to be performed on inputs
+switch(operator) {
+    case 'plus': 
+        resultDis.text(parseInt(firstNum) + parseInt(secondNum));
 
+    case'minus': 
+        resultDis.text(parseInt(firstNum) - parseInt(secondNum));
+
+    case 'multiply': 
+        resultDis.text(parseInt(firstNum) * parseInt(secondNum));
+
+    case 'divide':
+        resultDis.text(parseInt(firstNum) / parseInt(secondNum));
+    case 'power':
+        resultDis.text(Math.pow(parseInt(firstNum), parseInt(secondNum)));
+}
 
 //Clear button click listener
 $('#clear').on('click', initialize);
