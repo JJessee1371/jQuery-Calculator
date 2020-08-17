@@ -5,17 +5,17 @@ let num1Dis = $('#number1');
 let num2Dis = $('#number2');
 let operatorDis = $('#operator');
 let resultDis = $('#result');
-let firstNum = 0;
+let firstNum = '';
 let operator = '';
-let secondNum = 0;
-let result = 0;
+let secondNum = '';
+let result = '';
 
 //Initialzie the calculator 
 function initialize() {
-    firstNum = 0;
+    firstNum = '';
     operator = '';
-    secondNum = 0;
-    result = 0;
+    secondNum = '';
+    result = '';
     disArr = [num1Dis, num2Dis, operatorDis, resultDis];
     for (i = 0; i < disArr.length; i++) {
         disArr[i].empty();
@@ -24,10 +24,29 @@ function initialize() {
 
 //When a number is clicked print to the screen as number 1
 $('.num').on('click', function() {
+    if (operatorChosen === false) {
     firstNum += $(event.currentTarget).val();
     console.log(firstNum);
     num1Dis.text(firstNum);
+    }
+//If the user has chosen an operator number 2 will be printed
+    else if (operatorChosen === true) {
+    secondNum += $(event.currentTarget).val();
+    console.log(secondNum);
+    num2Dis.text(secondNum);
+    }
 });
+
+//When an operator is clicked it's displayed 
+$('.operator').on('click', function() {
+    operator += $(event.currentTarget).val();
+    console.log(operator);
+    operatorDis.text(operator);
+    let operatorChosen = true;
+    console.log(operatorChosen);
+});
+
+
 
 
 
