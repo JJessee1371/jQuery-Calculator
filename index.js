@@ -9,6 +9,7 @@ let firstNum = '';
 let operator = '';
 let secondNum = '';
 let result = '';
+let operatorChosen = false;
 
 //Initialzie the calculator 
 function initialize() {
@@ -16,6 +17,7 @@ function initialize() {
     operator = '';
     secondNum = '';
     result = '';
+    operatorChosen = false;
     disArr = [num1Dis, num2Dis, operatorDis, resultDis];
     for (i = 0; i < disArr.length; i++) {
         disArr[i].empty();
@@ -42,7 +44,7 @@ $('.operator').on('click', function() {
     operator += $(event.currentTarget).val();
     console.log(operator);
     operatorDis.text(operator);
-    let operatorChosen = true;
+    operatorChosen = true;
     console.log(operatorChosen);
 });
 
@@ -51,21 +53,23 @@ $('.operator').on('click', function() {
 
 
 //Switch statement of functions to be performed on inputs
+$('#equal').on('click', function() {
 switch(operator) {
-    case 'plus': 
+    case '+': 
         resultDis.text(parseInt(firstNum) + parseInt(secondNum));
 
-    case'minus': 
+    case'-': 
         resultDis.text(parseInt(firstNum) - parseInt(secondNum));
 
-    case 'multiply': 
+    case '*': 
         resultDis.text(parseInt(firstNum) * parseInt(secondNum));
 
-    case 'divide':
+    case '/':
         resultDis.text(parseInt(firstNum) / parseInt(secondNum));
-    case 'power':
+    case '^':
         resultDis.text(Math.pow(parseInt(firstNum), parseInt(secondNum)));
 }
+});
 
 //Clear button click listener
 $('#clear').on('click', initialize);
