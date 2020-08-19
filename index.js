@@ -1,10 +1,10 @@
 console.log('Sanity check');
 
 //Grab items and make variables
-let num1Dis = $('#number1');
-let num2Dis = $('#number2');
-let operatorDis = $('#operator');
-let resultDis = $('#result');
+const num1Dis = $('#number1');
+const num2Dis = $('#number2');
+const operatorDis = $('#operator');
+const resultDis = $('#result');
 let firstNum = '';
 let operator = '';
 let secondNum = '';
@@ -50,26 +50,58 @@ $('.operator').on('click', function() {
 
 
 
-
-
 //Switch statement of functions to be performed on inputs
-$('#equal').on('click', function() {
-switch(operator) {
-    case '+': 
-        resultDis.text(parseInt(firstNum) + parseInt(secondNum));
+$('#equal').on('click', calculate());
 
-    case'-': 
-        resultDis.text(parseInt(firstNum) - parseInt(secondNum));
+function caluclate() {
+    if (!firstNum || !secondNum || !operator) {return};
 
-    case '*': 
-        resultDis.text(parseInt(firstNum) * parseInt(secondNum));
+    switch(operator) {
+        case '+': 
+            result = add(parseInt(firstNum, parseInt(secondNum)));
+            break;
 
-    case '/':
-        resultDis.text(parseInt(firstNum) / parseInt(secondNum));
-    case '^':
-        resultDis.text(Math.pow(parseInt(firstNum), parseInt(secondNum)));
-}
-});
+        case'-': 
+            result = subtract(parseInt(firstNum), parseInt(secondNum));
+            break;
+
+        case '*': 
+            result = multiply(parseInt(firstNum), parseInt(secondNum));
+            break;
+
+        case '/':
+            result = divide(parseInt(firstNum), parseInt(secondNum));
+            break;
+
+        case '^':
+            result = power(parseInt(firstNum), parseInt(secondNum));
+            break;
+    };
+    resultDis.text(result);
+    console.log(result);
+};
+
+
+//Math operations functions
+function add(firstNum, secondNum) {
+    return firstNum + secondNum;
+};
+
+function subtract(firstNum, secondNum) {
+    return firstNum - secondNum;
+};
+
+function multiply(firstNum, secondNum) {
+    return firstNum * secondNum;
+};
+
+function divide(firstNum, secondNum) {
+    return firstNum / secondNum;
+};
+
+function power(firstNum, secondNum) {
+    Math.pow(fisrtNum, secondNum);
+};
 
 //Clear button click listener
 $('#clear').on('click', initialize);
