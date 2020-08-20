@@ -2,80 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap style link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- Personal stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-    <title>jQuery Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap style link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Personal stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <title>jQuery Calculator</title>
 </head>
 
 <body>
 
-    <header class="jumbotron jumbotron-fluid">
-      <div class="container">
-          <h1 class="display-4">jQuery Powered Calculator</h1>
-          <p class="lead">An exercise in more performance with less code!</p>
-      </div>
-    </header>
-
+  <header class="jumbotron jumbotron-fluid">
     <div class="container">
-      </div class="row">
-        <div class="col-lg-4">
-          <div class="card">
-            <h5 class="card-header">Calculate here!</h5>
-            <div class="card-body">
-                <button type="button" class="btn btn-dark num" value="1">1</button>
-                <button type="button" class="btn btn-dark num" value="2">2</button>
-                <button type="button" class="btn btn-dark num" value="3">3</button>
-                <button type="button" class="btn btn-danger operator" value="+">+</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-dark num" value="4">4</button>
-                <button type="button" class="btn btn-dark num" value="5">5</button>
-                <button type="button" class="btn btn-dark num" value="6">6</button>
-                <button type="button" class="btn btn-danger operator" value="-">-</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-dark num" value="7">7</button>
-                <button type="button" class="btn btn-dark num" value="8">8</button>
-                <button type="button" class="btn btn-dark num" value="9">9</button>
-                <button type="button" class="btn btn-danger operator" value="*">*</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-dark num" value="0">0</button>
-                <button type="button" class="btn btn-danger operator" value="/">/</button>
-                <button type="button" class="btn btn-danger operator" value="^">^</button>
-                <button type="button" class="btn btn-success" id="equal">=</button>
-                <br>
-                <br>
-                <button type="button" class="btn btn-warning" id="clear">Clear</button>
-            </div>
-          </div>
-        </div>
+      <h1 class="display-4">jQuery Powered Calculator</h1>
+      <p class="lead">An exercise in more performance with less code!</p>
+    </div>
+  </header>
 
-        <div class="col-lg-6">
-          <div class="card">
-            <h5 class="card-header">Display</h5>
-            <div class="card-body">
-                <h2 id="number1"><span></span></h2>
-                <h2 id="operator"><span></span></h2>
-                <h2 id="number2"><span></span></h2>
-                <hr>
-                <h2 id="result"><span></span></h2>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card">
+          <h5 class="card-header">Calculate here!</h5>
+          <div class="card-body">
+            <button type="button" class="btn btn-dark num" value="1">1</button>
+            <button type="button" class="btn btn-dark num" value="2">2</button>
+            <button type="button" class="btn btn-dark num" value="3">3</button>
+            <button type="button" class="btn btn-danger operator" value="+">+</button>
+            <br>
+            <br>
+            <button type="button" class="btn btn-dark num" value="4">4</button>
+            <button type="button" class="btn btn-dark num" value="5">5</button>
+            <button type="button" class="btn btn-dark num" value="6">6</button>
+            <button type="button" class="btn btn-danger operator" value="-">-</button>
+            <br>
+            <br>
+            <button type="button" class="btn btn-dark num" value="7">7</button>
+            <button type="button" class="btn btn-dark num" value="8">8</button>
+            <button type="button" class="btn btn-dark num" value="9">9</button>
+            <button type="button" class="btn btn-danger operator" value="*">*</button>
+            <br>
+            <br>
+            <button type="button" class="btn btn-dark num" value="0">0</button>
+            <button type="button" class="btn btn-danger operator" value="/">/</button>
+            <button type="button" class="btn btn-danger operator" value="^">^</button>
+            <button type="button" class="btn btn-success" id="equal">=</button>
+            <br>
+            <br>
+            <button type="button" class="btn btn-warning" id="clear">Clear</button>
           </div>
         </div>
       </div>
     </div>
 
+    <div class="col-lg-6">
+      <div class="card">
+        <h5 class="card-header">Display</h5>
+        <div class="card-body">
+          <h2 id="number1"><span></span></h2>
+          <h2 id="operator"><span></span></h2>
+          <h2 id="number2"><span></span></h2>
+          <hr>
+          <h2 id="result"><span></span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.js"
-        integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" 
-        crossorigin="anonymous"></script>
-<script src="index.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
+    integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
