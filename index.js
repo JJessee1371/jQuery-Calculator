@@ -10,14 +10,16 @@ let operator = '';
 let secondNum = '';
 let result = '';
 let operatorChosen = false;
+let complete = false;
 
 //Initialzie the calculator 
-function initialize() {
+function clear() {
     firstNum = '';
     operator = '';
     secondNum = '';
     result = '';
     operatorChosen = false;
+    complete = false;
     disArr = [num1Dis, num2Dis, operatorDis, resultDis];
     for (i = 0; i < disArr.length; i++) {
         disArr[i].empty();
@@ -26,34 +28,32 @@ function initialize() {
 
 //When a number is clicked print to the screen as number 1
 $('.num').on('click', function() {
-    if (operatorChosen === false) {
+    if (complete === true) {clear()};
+
+    if (!operatorChosen) {
     firstNum += $(event.currentTarget).val();
-    console.log(firstNum);
     num1Dis.text(firstNum);
     }
 //If the user has chosen an operator number 2 will be printed
-    else if (operatorChosen === true) {
+    else if (operatorChosen) {
     secondNum += $(event.currentTarget).val();
-    console.log(secondNum);
     num2Dis.text(secondNum);
     }
 });
-
 //When an operator is clicked it's displayed 
 $('.operator').on('click', function() {
-    operator += $(event.currentTarget).val();
-    console.log(operator);
-    operatorDis.text(operator);
+    if (!firstNum || complete) {return};
     operatorChosen = true;
-    console.log(operatorChosen);
+    operator += $(event.currentTarget).val();
+    operatorDis.text(operator);
 });
 
 
 
 //Switch statement of functions to be performed on inputs
-$('#equal').on('click', calculate());
+$('#equal').on('click', calculate);
 
-function caluclate() {
+function calculate() {
     if (!firstNum || !secondNum || !operator) {return};
 
     switch(operator) {
@@ -61,7 +61,7 @@ function caluclate() {
             result = add(parseInt(firstNum, parseInt(secondNum)));
             break;
 
-        case'-': 
+        case '-': 
             result = subtract(parseInt(firstNum), parseInt(secondNum));
             break;
 
@@ -77,9 +77,12 @@ function caluclate() {
             result = power(parseInt(firstNum), parseInt(secondNum));
             break;
     };
+
     resultDis.text(result);
     console.log(result);
+    complete = true;
 };
+
 
 
 //Math operations functions
@@ -100,8 +103,8 @@ function divide(firstNum, secondNum) {
 };
 
 function power(firstNum, secondNum) {
-    Math.pow(fisrtNum, secondNum);
+    Math.pow(firstNum, secondNum);
 };
 
 //Clear button click listener
-$('#clear').on('click', initialize);
+$('#clear').on('click', clear);
