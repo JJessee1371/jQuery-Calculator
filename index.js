@@ -103,7 +103,7 @@ function divide(firstNum, secondNum) {
 };
 
 function power(firstNum, secondNum) {
-    Math.pow(firstNum, secondNum);
+    return firstNum ** secondNum;
 };
 
 //Clear button click listener
