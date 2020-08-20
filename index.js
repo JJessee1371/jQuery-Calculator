@@ -58,7 +58,7 @@ function calculate() {
 
     switch(operator) {
         case '+': 
-            result = add(parseInt(firstNum, parseInt(secondNum)));
+            result = add(parseInt(firstNum), parseInt(secondNum));
             break;
 
         case '-': 
